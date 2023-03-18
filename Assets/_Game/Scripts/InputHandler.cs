@@ -7,13 +7,19 @@ public enum Direction
     None, Left, Right, Up, Down
 }
 
-
 public class InputHandler : MonoBehaviour
 {
+    public static InputHandler Instance;
+
     static Direction currentDirection = Direction.None;
 
     bool isSlide;
     [SerializeField] Vector2 startPosition, diffPosition;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Update()
     {
@@ -31,8 +37,6 @@ public class InputHandler : MonoBehaviour
         }
 
         currentDirection = CheckDirection();
-
-        Debug.Log(currentDirection);
     }
 
     private Direction CheckDirection()
@@ -43,16 +47,6 @@ public class InputHandler : MonoBehaviour
         }
 
         diffPosition = (Vector2)Input.mousePosition - startPosition;
-
-        //if (Vector2.Distance(diffPosition, Vector2.zero) < 0.1f)
-        //{
-        //    return Direction.None;
-        //}
-
-        //if (diffPosition == Vector2.zero)
-        //{
-        //    return Direction.None;
-        //}
 
         if (diffPosition.magnitude < 0.1f)
         {
