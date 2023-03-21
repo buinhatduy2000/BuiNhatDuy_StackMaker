@@ -11,7 +11,7 @@ public class CharacterMovement : MonoBehaviour
     public Transform CheckBrick;
     public LayerMask mask;
 
-    private Rigidbody rb;
+    [HideInInspector]public Rigidbody rb;
     [SerializeField] private float moveSpeed = 10;
     [SerializeField] private bool isMoving;
 
@@ -73,7 +73,6 @@ public class CharacterMovement : MonoBehaviour
         brick.transform.rotation = rote;
 
         Vector3 CharacterPos = transform.localPosition;
-
         CharacterPos.y += 0.25f;
         transform.localPosition = CharacterPos;
 
@@ -81,9 +80,11 @@ public class CharacterMovement : MonoBehaviour
         PrevBrick.GetComponent<BoxCollider>().isTrigger = false;
     }
 
-    public void DropBrick(GameObject brick)
+    public void DropBrick()
     {
-
+        Vector3 CharacterPos = transform.localPosition;
+        CharacterPos.y -= 0.25f;
+        transform.localPosition = CharacterPos;
     }
 
     private void DoMove(Direction moveDirection)
