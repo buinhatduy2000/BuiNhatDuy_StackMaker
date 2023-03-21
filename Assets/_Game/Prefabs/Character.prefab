@@ -5980,6 +5980,9 @@ MonoBehaviour:
   BrickParent: {fileID: 8043522227828379443}
   PrevBrick: {fileID: 7768488886785735305}
   CheckBrick: {fileID: 416429478057318023}
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
   moveSpeed: 1000
 --- !u!1 &6857263257750263652
 GameObject:
@@ -9134,7 +9137,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000005, y: 1.0000004, z: 0.29989854}
+  m_Size: {x: 0.5, y: 0.5, z: 0.29989854}
   m_Center: {x: 0.0000060945777, y: -0.00000027416934, z: 0.14994933}
 --- !u!54 &7327504476419912076
 Rigidbody:

@@ -14,6 +14,7 @@ public class BrickScripts : MonoBehaviour
             other.gameObject.GetComponent<Rigidbody>().useGravity = false;
             other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             other.gameObject.AddComponent<BrickScripts>();
+            other.gameObject.AddComponent<BuildBrick>();
             Destroy(this);
         }
     }
